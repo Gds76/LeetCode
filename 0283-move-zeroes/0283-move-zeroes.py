@@ -3,16 +3,23 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        
-        n = len(nums)
-        
-        lst = []
-        
-        for j in range(n):
-            if nums[j] == 0:
-                lst.append(nums[j])
-        for i in range(len(lst)):
-            nums.remove(lst[i])
-            nums.append(0)
-        
+        a = 0
+        b = 1
+        while a<b and b < len(nums):
+            if nums[a] == 0 and nums[b] != 0:
+                nums[a], nums[b] = nums[b], nums[a]
+                a+=1
+                b+=1
+                
+            elif nums[a] != 0 and nums[b] == 0:
+                a+=1
+                b+=1
+            elif nums[a] == 0 and nums[b] == 0:
+                b+=1
+            else:
+                a+=1
+                b+=1
+            
+                
+            
         
